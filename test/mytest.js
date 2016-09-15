@@ -8,13 +8,14 @@ var Task = require('../lib').Task
               , mutate : mutate
               , crossoverProbability : 0.3
               , crossover : crossover
+              , elitism : true // XXX
               }
   , util = require('util')
 
 function crossover(parent1, parent2, callback) {
   var child = {}
   if (Math.random()>0.5) {
-    child.a = parent1.a    
+    child.a = parent1.a
   }
   else {
     child.a = parent2.a
@@ -76,25 +77,23 @@ var
 // t.on('parent selection start', function () { console.log('parent selection start') })
 // t.on('parent selection end', function (parents) { console.log('parent selection end ',parents) })
 // t.on('reproduction start', function () { console.log('reproduction start') })
-// 
+//
 // t.on('find sum', function () { console.log('find sum') })
 // t.on('find sum end', function (sum) { console.log('find sum end', sum) })
 
 // t.on('statistics', function (statistics) { console.log('statistics',statistics)})
-// 
+//
 // t.on('normalize start', function () { console.log('normalize start') })
 // t.on('normalize end', function (normalized) { console.log('normalize end',normalized) })
 // t.on('child forming start', function () { console.log('child forming start') })
 // t.on('child forming end', function (children) { console.log('child forming end',children) })
 // t.on('child selection start', function () { console.log('child selection start') })
 // t.on('child selection end', function (population) { console.log('child selection end',population) })
-// 
+//
 // t.on('mutate', function () { console.log('MUTATION!') })
-// 
-// 
+//
+//
 // t.on('reproduction end', function (children) { console.log('reproduction end',children) })
-// 
+//
 t.on('error', function (error) { console.log('ERROR - ', error) })
 t.run(function (stats) { console.log('results', stats)})
-
-
